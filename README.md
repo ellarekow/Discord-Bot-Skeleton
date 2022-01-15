@@ -1,7 +1,7 @@
 # Discord-Bot-Skeleton
 A skeleton JS discord bot. 
 
-*PLEASE NOTE THIS IS A WIP
+*PLEASE NOTE THIS IS A WIP*
 
 ### If you need any questions answered or have issues with this bot go ahead and submit an issue on this repository!! 
 
