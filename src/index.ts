@@ -1,28 +1,41 @@
 // Require the necessary discord.js classes
-const { Client, Intents } = require('discord.js');
-const { token } = require('./config.json');
+import { Client, Intents } from "discord.js";
+import { config as loadEnvironmentVariables } from "dotenv";
+
+loadEnvironmentVariables();
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
 // When the client is ready, run this code (only once)
-client.once('ready', () => {
-	console.log('Ready!');
+client.once("ready", () => {
+    console.log("Ready!");
 });
 
-client.on('interactionCreate', async interaction => {
-	if (!interaction.isCommand()) return;
+client.on("interactionCreate", async (interaction) => {
+    if (!interaction.isCommand()) return;
 
-	const { commandName } = interaction;
-    
-	if (commandName === 'ping') {
-		await interaction.reply('Pong!');
-	} else if (commandName === 'server') {
-		await interaction.reply('Server info.');
-	} else if (commandName === 'user') {
-		await interaction.reply('User info.');
-	}
+    const { commandName } = interaction;
+
+    switch (commandName) {
+        case "ping": {
+            await interaction.reply("Pong!");
+
+            break;
+        }
+        case "server": {
+            await interaction.reply("Server info.");
+
+            break;
+        }
+        case "user": {
+            await interaction.reply("User info.");
+
+            break;
+        }
+        // No default
+    }
 });
 
 // Login to Discord with your client's token
-client.login(token);
+client.login(process.env.TOKEN);

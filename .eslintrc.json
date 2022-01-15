@@ -1,0 +1,19 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2021
+    },
+    "extends": [
+        "plugin:lvksh/recommended"
+    ],
+    "ignorePatterns": ["!**/*"],
+    "plugins": ["lvksh","@typescript-eslint","import"],
+    "env": {
+        "node": true
+    },
+    "rules": {
+        "quotes": "off",
+        "import/no-default-export": "error",
+        "@typescript-eslint/no-require-imports": 2
+    }
+}
